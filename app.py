@@ -1,5 +1,4 @@
 import streamlit as st
-import tensorflow as tf
 from PIL import Image
 import numpy as np
 st.set_page_config(page_title="Handwritten Digit Recognition", page_icon="✍️")
@@ -59,3 +58,4 @@ if uploaded_file is not None:
         st.error(f"Error processing image: {e}. Ensure the image is a valid handwritten digit (e.g., 28x28 or resizable).")
 else:
     st.info("Please upload an image to get started.")
+
