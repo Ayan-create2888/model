@@ -1,6 +1,9 @@
 import streamlit as st
 from PIL import Image
 import numpy as np
+import tensorflow as tf
+from pathlib import Path
+
 try:
          import tensorflow as tf
          print("TensorFlow version:", tf.__version__)
@@ -8,16 +11,15 @@ except ImportError as e:
          print("TensorFlow not found:", e)
 st.set_page_config(page_title="Handwritten Digit Recognition", page_icon="✍️")
 
-@st.cache_resource  
+@st.cache_resource
 def load_model():
-    try:
-        model = tf.keras.models.load_model('hand_written_model.keras')
-        return model
-    except ValueError as e:
-        st.error(f"Error loading model: {e}")
+    model_path = Path(__file__).parent / "hand_written_model.keras"
+    if not model_path.exists():
+        st.error(f"Model file not found: {model_path}")
         st.stop()
-     
-model = load_model()
+    model = tf.keras.models.load_model(model_path)
+    return model
+
 
 
 
@@ -59,6 +61,7 @@ else:
 import os
 st.write("Current dir:", os.getcwd())
 st.write("Files:", os.listdir('.'))
+
 
 
 
