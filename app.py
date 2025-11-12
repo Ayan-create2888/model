@@ -59,3 +59,6 @@ if uploaded_file is not None:
 else:
     st.info("Please upload an image to get started.")
 
+import os
+  st.write("Current dir:", os.getcwd())
+  st.write("Files:", os.listdir('.'))
