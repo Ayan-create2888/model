@@ -58,7 +58,7 @@ if uploaded_file is not None:
         st.error(f"Error processing image: {e}. Ensure the image is a valid handwritten digit (e.g., 28x28 or resizable).")
 else:
     st.info("Please upload an image to get started.")
-
 import os
-  st.write("Current dir:", os.getcwd())
-  st.write("Files:", os.listdir('.'))
+st.write("Current dir:", os.getcwd())
+st.write("Files:", os.listdir('.'))
+
