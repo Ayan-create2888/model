@@ -1,6 +1,11 @@
 import streamlit as st
 from PIL import Image
 import numpy as np
+try:
+         import tensorflow as tf
+         print("TensorFlow version:", tf.__version__)
+    except ImportError as e:
+         print("TensorFlow not found:", e)
 st.set_page_config(page_title="Handwritten Digit Recognition", page_icon="✍️")
 
 @st.cache_resource  
@@ -11,14 +16,7 @@ def load_model():
     except ValueError as e:
         st.error(f"Error loading model: {e}")
         st.stop()
-    try:
-         import tensorflow as tf
-         print("TensorFlow version:", tf.__version__)
-    except ImportError as e:
-         print("TensorFlow not found:", e)
      
-
-
 model = load_model()
 
 
@@ -61,4 +59,5 @@ else:
 import os
 st.write("Current dir:", os.getcwd())
 st.write("Files:", os.listdir('.'))
+
 
