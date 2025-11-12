@@ -4,7 +4,7 @@ import numpy as np
 try:
          import tensorflow as tf
          print("TensorFlow version:", tf.__version__)
-    except ImportError as e:
+except ImportError as e:
          print("TensorFlow not found:", e)
 st.set_page_config(page_title="Handwritten Digit Recognition", page_icon="✍️")
 
@@ -59,5 +59,6 @@ else:
 import os
 st.write("Current dir:", os.getcwd())
 st.write("Files:", os.listdir('.'))
+
 
 
